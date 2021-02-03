@@ -1,5 +1,5 @@
-# DAO-CP
-This project is a TensorLy implementation of DAO-CP: Data Adaptive Online CP Decomposition ([ECML PKDD 2021](https://2021.ecmlpkdd.org/)). <br>
+# DAO-CP [HomePage](https://datalab.snu.ac.kr/dao-cp/)
+This project is a TensorLy implementation of DAO-CP: data adaptive online CP decomposition ([PLOS ONE](https://journals.plos.org/plosone/)). <br>
 This paper proposes a fast and accurate data-adaptive online CP factorization algorithm for high-order tensors. 
 
 ![overview](docs/overview.svg)
