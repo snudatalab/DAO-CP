@@ -2,7 +2,7 @@
 This project is a TensorLy implementation of DAO-CP: Data Adaptive Online CP Decomposition ([ECML PKDD 2021](https://2021.ecmlpkdd.org/)). <br>
 This paper proposes a fast and accurate data-adaptive online CP factorization algorithm for high-order tensors. 
 
-![overview](docs/overview.png)
+![overview](docs/overview.svg)
 
 ## Prerequisites
 - Python 3.6+
@@ -23,7 +23,7 @@ which simply moves to `src/` and runs `python main.py <dataset_name>`.
 
 ## Datasets
 | Name | Order | Dimensions | Batch Sizes | Rank | `L_s` | `L_r` |
-|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+|:--|:--|:--|:--|:--|:--|:--|
 | synthetic	| 4 | (1K, 10, 20, 30) 		| [10] * 100 	| 30 | 1.2 | 1.1 |
 | video		| 4 | (205, 240, 320, 3) 	| [5] * 41 		| 30 | 6.0 | 2.0 |
 | stock 	| 3 | (3K, 140, 5) 			| [3] * 1K	 	| 20 | 6.0 | 5.0 |
