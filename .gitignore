@@ -1,4 +1,6 @@
-data/
+data/hall/hall1-200.mat
+data/korea/air_quality.tensor
+data/stock/KOSPI140.tensor
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
