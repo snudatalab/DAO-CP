@@ -1,4 +1,5 @@
 data/korea/air_quality.tensor
+out
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

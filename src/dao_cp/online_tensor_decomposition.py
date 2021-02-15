@@ -1,5 +1,5 @@
 """
- DAO-CP: Data Adaptive Online CP Decomposition (ECML PKDD 2021)
+ DAO-CP: Data Adaptive Online CP Decomposition (PLOS ONE 2021)
 
 Authors:
 - Sangjun Son      (lucetre@snu.ac.kr), Seoul National University
@@ -29,7 +29,6 @@ def online_tensor_decomposition(dataset, X, X_stream, rank, n_iter=1, ul=-1, ll=
     start = time.time()
     (weights, factors_old) = parafac(X_stream[0], rank, init='random')
     init_time = time.time()-start
-#    print('making init decomposition result:', init_time)
     
     for method in methods:
 
@@ -57,7 +56,6 @@ def online_tensor_decomposition(dataset, X, X_stream, rank, n_iter=1, ul=-1, ll=
             print('Global Fitness         :', format(global_fit*100, '.4f'), '%')
             print('Global Running Time    :', format(global_rt, '.4f'), 'sec')
             print('Memory Usage           :', mem_usage, 'bytes')
-#            results[method] = [global_fit, 0, global_rt, 0, mem_usage, X_est]
             results[method] = [ktensor]
             continue
 
@@ -114,14 +112,12 @@ def online_tensor_decomposition(dataset, X, X_stream, rank, n_iter=1, ul=-1, ll=
             if method == 'dao' and ul > 0 and z_score > ul:
                 weights = tl.ones(rank)
                 ktensors.append(KruskalTensor((weights, factors.copy())))
-                #print('=== SPLIT({}, {}) ==='.format(z_score, err_norm))
                 split_points.append(i+1)
 
                 X_old = X_stream[i+1]
 
                 (weights, factors0) = parafac(X_old, rank, init='random')
                 elapsed_time = time.time()-start
-                #print('making init decomposition result:', time.time()-start)
                 verbose_list.append([i+1, elapsed_time, err_norm, z_score])
 
                 i_mem += sys.getsizeof(factors0)
@@ -135,13 +131,11 @@ def online_tensor_decomposition(dataset, X, X_stream, rank, n_iter=1, ul=-1, ll=
                 factors = factors0.copy()
                 welford(err_norm)
                 elapsed_time = time.time()-start
-                #print('{}th_iter:'.format(i+1), elapsed_time, err_norm, z_score)
                 verbose_list.append([i+1, elapsed_time, err_norm, z_score])
                 fitness.append(err_norm/tl.norm(X_new))
                 running_time.append(elapsed_time)
                 continue
             elif method == 'dao' and ll > 0 and z_score > ll:
-                #print('=== REFINE({}, {}) ==='.format(z_score, err_norm))
                 refine_points.append(i+1)
                 elapsed_time = time.time()-start
                 verbose_list.append([i+1, elapsed_time, err_norm, z_score])
@@ -162,7 +156,6 @@ def online_tensor_decomposition(dataset, X, X_stream, rank, n_iter=1, ul=-1, ll=
                 welford(err_norm)
             
             elapsed_time = time.time()-start
-            #print('{}th_iter:'.format(i+1), elapsed_time, err_norm, z_score)
             verbose_list.append([i+1, elapsed_time, err_norm, z_score])
             fitness.append(err_norm/tl.norm(X_new))
             running_time.append(elapsed_time)
@@ -178,15 +171,12 @@ def online_tensor_decomposition(dataset, X, X_stream, rank, n_iter=1, ul=-1, ll=
         ktensors.append(KruskalTensor((weights, factors)))
         mem_usage += sys.getsizeof(ktensors)
         
-#     return (ktensors, np.asarray(verbose_list))
         global_rt = time.time() - begin
 
         tensor_est = construct_tensor(ktensors[0][1])
         for (weights, factors) in ktensors[1:]:
             tensor_est = tl.tensor(tl.concatenate((tensor_est, construct_tensor(factors))))
         global_error_norm = compare_tensors(X, tensor_est)
-#        print('Elapsed Time:', time.time() - begin)
-#         print_tensor(np.asarray((X, tensor_est))[:,0,0,0,:10])
         if method == 'dao':
             print(f'SPLIT: {len(split_points)}, REFINE: {len(refine_points)}')
             
@@ -204,7 +194,6 @@ def online_tensor_decomposition(dataset, X, X_stream, rank, n_iter=1, ul=-1, ll=
             print('Global Running Time    :', format(global_rt, '.4f'), 'sec')
             print('Avg Local Running Time :', format(local_rt, '.4f'), 'sec')
             print('Memory Usage           :', mem_usage, 'bytes')
-#            results[method] = [global_fit, local_fit, global_rt, local_rt, mem_usage, verbose_list, (split_points, refine_points), tensor_est]
             results[method] = ktensors
             
     return results

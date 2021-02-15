@@ -12,6 +12,7 @@ This paper proposes a fast and accurate data-adaptive online CP factorization al
 - [SciPy 1.5.2](https://www.scipy.org/)
 
 ## Usage
+* Install all of the prerequisites with `pip install -r requirements.txt`.
 * You can run the demo script by `bash demo.sh <dataset_name>`, <br>
 which simply moves to `src/` and runs `python main.py <dataset_name>`.
   * You can choose a dataset for demo (synthetic, video, stock, hall, korea).

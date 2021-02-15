@@ -1,5 +1,5 @@
 """
- DAO-CP: Data Adaptive Online CP Decomposition (ECML PKDD 2021)
+ DAO-CP: Data Adaptive Online CP Decomposition (PLOS ONE 2021)
 
 Authors:
 - Sangjun Son      (lucetre@snu.ac.kr), Seoul National University

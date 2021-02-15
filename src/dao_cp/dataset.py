@@ -1,5 +1,5 @@
 """
- DAO-CP: Data Adaptive Online CP Decomposition (ECML PKDD 2021)
+ DAO-CP: Data Adaptive Online CP Decomposition (PLOS ONE 2021)
 
 Authors:
 - Sangjun Son      (lucetre@snu.ac.kr), Seoul National University
@@ -11,6 +11,8 @@ This software may be used only for research evaluation purposes.
 For other purposes (e.g., commercial), please contact the authors.
 """
 import csv
+import os
+import wget
 import pandas as pd
 import numpy as np
 import tensorly as tl
@@ -49,7 +51,14 @@ def get_dataset(name):
         return stock
     
     elif name == 'korea':
-        df = pd.read_csv('../data/korea/air_quality.tensor', delimiter='\t', header=None)
+        fname = '../data/korea/air_quality.tensor'
+        if not os.path.isfile(fname):
+            os.mkdir('../data/korea/')
+            print('Online download...')
+            url = 'https://github.com/snudatalab/DAO-CP/releases/download/v0.1/air_quality.tensor'
+            wget.download(url, fname)
+        
+        df = pd.read_csv(fname, delimiter='\t', header=None)
         dims = df[[0,1,2]].max()+1
         korea = np.empty(dims) * np.nan
         for i, row in df.iterrows():

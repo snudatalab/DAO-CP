@@ -1,5 +1,5 @@
 """
- DAO-CP: Data Adaptive Online CP Decomposition (ECML PKDD 2021)
+ DAO-CP: Data Adaptive Online CP Decomposition (PLOS ONE 2021)
 
 Authors:
 - Sangjun Son      (lucetre@snu.ac.kr), Seoul National University
@@ -23,7 +23,6 @@ def print_tensor(X, n_digit=1):
     
 def compare_tensors(A, B):
     error_norm = tl.norm(A - B)
-#    print('||A-B||:', error_norm)
     return error_norm
     
 def create_tensor_stream(X, start_to_stream, batch_sizes=[]):
@@ -35,7 +34,6 @@ def create_tensor_stream(X, start_to_stream, batch_sizes=[]):
             batch_sizes = np.full(((X.shape[0]-batch_size) // batch_size), batch_size, dtype=int)
         else:
             batch_sizes = np.full((X.shape[0] // batch_size), batch_size, dtype=int)
-#        print(start_to_stream, batch_sizes)
     
     total_batch_size = np.sum(batch_sizes)
     if X.shape[0] != start_to_stream + total_batch_size:
