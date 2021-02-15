@@ -1,6 +1,6 @@
 ## Datasets
-|No. | Name | Order | Dimensions | Description | Download
-|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+| No. | Name | Order | Dimensions | Description | Download |
+|:--|:--|:--|:--|:--|:--|
 | 1 | synthetic	| 4 | (1K, 10, 20, 30) 		| Synthetic tensor of various themes. consists of <br> (timestamp, custom mode1, custom mode2, custom mode3) | [Link](https://github.com/lucetre/online-tensor-decomposition/)
 | 2 | video		| 4 | (205, 240, 320, 3) 	| Sample video on [YouTube](https://www.youtube.com/watch?v=EngW7tLk6R8). consists of <br>(frame, width, height, RGB colors) | [Link](https://www.sample-videos.com/)
 | 3 | stock 	| 3 | (3K, 140, 5) 			| Korea stock price. consists of <br>(timestamp in date, stock, price type) | [Link](https://deeptrade.co/})
