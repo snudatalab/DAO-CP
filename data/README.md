@@ -1,6 +1,4 @@
 ## Datasets
-<center>
-
 No. | Name | Order | Dimensions | Description | Download
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|
 | 1 | synthetic	| 4 | (1K, 10, 20, 30) 		| Synthetic tensor of various themes. consists of <br> (timestamp, custom mode1, custom mode2, custom mode3) | [Link](https://github.com/lucetre/online-tensor-decomposition/)
@@ -9,7 +7,6 @@ No. | Name | Order | Dimensions | Description | Download
 | 4 | hall		| 3 | (200, 144, 176) 		| Airport hall video. consists of (frame, width, height) | [Link](https://github.com/hiroyuki-kasai/OLSTEC/)
 | 5 | korea 	| 3 | (10K, 323, 6) 		| Korea air pollutants information. consists of <br>(timestamp in hour, location, atmospheric pollutants; measurement) | [Link](https://www.airkorea.or.kr/eng/)
 <br>
-</center>
 
 1. Synthetic dataset is made of concatenated tensors which is summation of three tensors `T_main`, `T_theme`, and `T_noise`.<br>
 Each tensor refers to 100x, 10x and 1x normal distributed randomized tensor. 
