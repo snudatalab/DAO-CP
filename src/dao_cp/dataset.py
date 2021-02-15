@@ -55,7 +55,7 @@ def get_dataset(name):
         if not os.path.isfile(fname):
             os.mkdir('../data/korea/')
             print('Online download...')
-            url = 'https://github.com/snudatalab/DAO-CP/releases/download/v0.1/air_quality.tensor'
+            url = 'https://github.com/snudatalab/DAO-CP/releases/download/v1.0/air_quality.tensor'
             wget.download(url, fname)
         
         df = pd.read_csv(fname, delimiter='\t', header=None)
