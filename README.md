@@ -10,6 +10,7 @@ This paper proposes a fast and accurate data-adaptive online CP factorization al
 - [TensorLy 0.4.5](http://tensorly.org)
 - [Pandas 1.1.1](https://pandas.pydata.org/)
 - [SciPy 1.5.2](https://www.scipy.org/)
+- [wget 3.2](https://pypi.org/project/wget/)
 
 ## Usage
 * Install all of the prerequisites with `pip install -r requirements.txt`.
