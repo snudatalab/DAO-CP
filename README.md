@@ -31,3 +31,18 @@ which simply moves to `src/` and runs `python main.py <dataset_name>`.
 | stock 	| 3 | (3K, 140, 5) 			| [3] * 1K	 	| 20 | 6.0 | 5.0 |
 | hall		| 3 | (200, 144, 176) 		| [10] * 20 	| 20 | 0.5 | 0.1 |
 | korea 	| 3 | (10K, 323, 6) 		| [100] * 100	| 20 | 2.0 | 1.3 |
+
+## Reference
+If you use this code, please cite the following paper.
+~~~
+@article{spc22dao,
+	title={DAO-CP: Data-Adaptive Online CP decomposition for tensor stream},
+	author={Son, Sangjun and Park, Yong-chan and Cho, Minyong and Kang, U},
+	journal={PloS one},
+	volume={17},
+	number={4},
+	pages={e0267091},
+	year={2022},
+	publisher={Public Library of Science San Francisco, CA USA}
+}
+~~~
