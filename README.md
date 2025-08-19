@@ -34,7 +34,7 @@ which simply moves to `src/` and runs `python main.py <dataset_name>`.
 
 ## Reference
 If you use this code, please cite the following paper.
-~~~
+```bibtex
 @article{spc22dao,
 	title={DAO-CP: Data-Adaptive Online CP decomposition for tensor stream},
 	author={Son, Sangjun and Park, Yong-chan and Cho, Minyong and Kang, U},
